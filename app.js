@@ -6,6 +6,8 @@ const cors = require("cors");
 const graphqqlHTTP = require("express-graphql");
 const schema = require("./schema/schema");
 
+const app = express();
+
 //alllow cross-origin requests
 app.use(cors);
 
@@ -16,11 +18,6 @@ mongoose.connect(process.env.MONGOOSE_URL, { useNewUrlParser: true });
 mongoose.connection.once("open", () => {
   console.log("CONNECTED TO DB");
 });
-
-//
-//
-
-const app = express();
 
 //show schema telling how to deal with querues
 app.use(
